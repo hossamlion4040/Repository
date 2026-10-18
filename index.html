@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostafa Rashad - Mobile bro shop</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo for Arabic & Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#FFE58F',
+                            DEFAULT: '#D4AF37',
+                            dark: '#9A7B1C',
+                            glow: '#FFD700',
+                        },
+                        dark: {
+                            bg: '#08080A',
+                            card: '#121216',
+                            border: '#2A2A35'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #08080A;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            min-height: 100vh;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF0B2 0%, #D4AF37 50%, #9A7B1C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #E6C258 0%, #D4AF37 50%, #B38F24 100%);
+        }
+
+        .gold-gradient-bg-hover:hover {
+            background: linear-gradient(135deg, #F0CE6B 0%, #E0B83D 50%, #C29A2B 100%);
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .gold-border-glow:hover {
+            box-shadow: 0 0 22px rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.6);
+        }
+
+        .glass-card {
+            background: rgba(18, 18, 22, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        /* Toast animation */
+        @keyframes slideUp {
+            from { transform: translateY(100%) translateX(-50%); opacity: 0; }
+            to { transform: translateY(0) translateX(-50%); opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        .toast-animate-in {
+            animation: slideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        .toast-animate-out {
+            animation: fadeOut 0.3s ease forwards;
+        }
+    </style>
+</head>
+<body class="text-gray-200 flex flex-col justify-between items-center p-4 sm:p-6 select-none">
+
+    <!-- Container Card -->
+    <main class="w-full max-w-md mx-auto my-auto">
+        <div class="glass-card rounded-3xl p-6 sm:p-8 gold-border-glow transition-all duration-300 relative overflow-hidden">
+            
+            <!-- Shimmer Top Bar -->
+            <div class="absolute top-0 left-0 right-0 h-1 gold-gradient-bg"></div>
+
+            <!-- Logo Section -->
+            <div class="flex justify-center mb-6 pt-2">
+                <div class="relative flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-neutral-900 to-black p-[2px] border border-gold/40 shadow-xl">
+                    <div class="w-full h-full rounded-full bg-neutral-950 flex items-center justify-center relative overflow-hidden">
+                        <!-- Custom Lux Monogram MB Logo SVG -->
+                        <svg class="w-14 h-14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#FFE58F" />
+                                    <stop offset="50%" stop-color="#D4AF37" />
+                                    <stop offset="100%" stop-color="#8A6D14" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Elegant Geometric MB Shapes -->
+                            <path d="M22 75 V25 L40 50 L58 25 V75" stroke="url(#goldGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M58 25 H72 C78 25 82 29 82 35 C82 41 77 45 71 45 H58 H73 C80 45 84 50 84 57 C84 65 78 75 68 75 H58" stroke="url(#goldGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="50" cy="50" r="44" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.4"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Names & Titles Section -->
+            <div class="text-center space-y-1.5 mb-8">
+                <!-- English Name -->
+                <h1 class="text-2xl sm:text-3xl font-bold tracking-wide font-inter gold-gradient-text dir-ltr">
+                    Mostafa Rashad
+                </h1>
+                <!-- Arabic Name -->
+                <h2 class="text-xl sm:text-2xl font-semibold text-gray-200">
+                    مصطفى رشاد
+                </h2>
+                <!-- Shop Name (Exact Case Specified) -->
+                <div class="pt-2">
+                    <span class="inline-block px-4 py-1.5 rounded-full text-sm font-medium font-inter bg-gold/10 text-gold border border-gold/30 dir-ltr tracking-wider">
+                        Mobile bro shop
+                    </span>
+                </div>
+            </div>
+
+            <!-- Main Action Buttons -->
+            <div class="space-y-3.5 mb-8">
+                
+                <!-- Call Button -->
+                <a href="tel:+201111528735" class="flex items-center justify-between w-full px-5 py-3.5 rounded-2xl bg-neutral-900/80 border border-neutral-800 hover:border-gold/50 text-white transition-all duration-200 group active:scale-[0.98]">
+                    <div class="flex items-center space-x-3 space-x-reverse">
+                        <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all">
+                            <i class="fa-solid fa-phone text-lg"></i>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm font-semibold">اتصال — Call</div>
+                            <div class="text-xs text-gray-400 font-inter dir-ltr text-right">+20 111 152 8735</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-left text-xs text-gray-500 group-hover:text-gold transition-colors"></i>
+                </a>
+
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/201111528735" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between w-full px-5 py-3.5 rounded-2xl bg-neutral-900/80 border border-neutral-800 hover:border-gold/50 text-white transition-all duration-200 group active:scale-[0.98]">
+                    <div class="flex items-center space-x-3 space-x-reverse">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-black transition-all">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm font-semibold">واتساب — WhatsApp</div>
+                            <div class="text-xs text-gray-400 font-inter dir-ltr text-right">+20 111 152 8735</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-left text-xs text-gray-500 group-hover:text-emerald-400 transition-colors"></i>
+                </a>
+
+                <!-- TikTok Button -->
+                <a href="https://www.tiktok.com/@mustafa.a.rashad?_r=1&_t=ZS-9AfAq7RPxfV" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between w-full px-5 py-3.5 rounded-2xl bg-neutral-900/80 border border-neutral-800 hover:border-gold/50 text-white transition-all duration-200 group active:scale-[0.98]">
+                    <div class="flex items-center space-x-3 space-x-reverse">
+                        <div class="w-10 h-10 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400 group-hover:bg-pink-500 group-hover:text-black transition-all">
+                            <i class="fa-brands fa-tiktok text-xl"></i>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm font-semibold">حساب TikTok</div>
+                            <div class="text-xs text-gray-400 font-inter dir-ltr text-right">@mustafa.a.rashad</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-left text-xs text-gray-500 group-hover:text-pink-400 transition-colors"></i>
+                </a>
+
+            </div>
+
+            <!-- Secondary Utility Actions (Save Contact & Copy Number) -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <!-- Save Contact (.vcf) -->
+                <button onclick="downloadVCard()" class="flex items-center justify-center space-x-2 space-x-reverse py-3 px-4 rounded-xl gold-gradient-bg gold-gradient-bg-hover text-black font-semibold text-sm transition-all shadow-lg active:scale-[0.97]">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>حفظ الجهة</span>
+                </button>
+
+                <!-- Copy Number -->
+                <button onclick="copyPhoneNumber()" class="flex items-center justify-center space-x-2 space-x-reverse py-3 px-4 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-gold border border-gold/20 font-semibold text-sm transition-all active:scale-[0.97]">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>نسخ الرقم</span>
+                </button>
+            </div>
+
+            <!-- Address Section (Text Only) -->
+            <div class="pt-4 border-t border-neutral-800/80 text-center">
+                <div class="flex items-center justify-center space-x-2 space-x-reverse text-gray-400 text-xs sm:text-sm">
+                    <i class="fa-solid fa-location-dot text-gold"></i>
+                    <span class="text-gray-300 font-medium">السراج مول 3</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Simple Modern Footer -->
+    <footer class="mt-6 text-center text-xs text-gray-600">
+        Mobile bro shop &copy; <span id="year"></span>
+    </footer>
+
+    <!-- Toast Notification Popup -->
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 hidden z-50">
+        <div class="bg-neutral-900 text-gold border border-gold/40 px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 space-x-reverse text-sm font-medium">
+            <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+            <span id="toast-message">تم نسخ الرقم بنجاح</span>
+        </div>
+    </div>
+
+    <script>
+        // Set dynamic current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const phoneNumber = "+201111528735";
+
+        // Function to copy phone number using fallback command for reliable web view support
+        function copyPhoneNumber() {
+            const tempInput = document.createElement("input");
+            tempInput.value = phoneNumber;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+            try {
+                document.execCommand("copy");
+                showToast("تم نسخ الرقم بنجاح");
+            } catch (err) {
+                showToast("تعذر نسخ الرقم تلقائياً");
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // Custom Toast Notification Handler
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            const toastMsg = document.getElementById("toast-message");
+            
+            toastMsg.textContent = message;
+            toast.classList.remove("hidden", "toast-animate-out");
+            toast.classList.add("toast-animate-in");
+
+            setTimeout(() => {
+                toast.classList.remove("toast-animate-in");
+                toast.classList.add("toast-animate-out");
+                setTimeout(() => {
+                    toast.classList.add("hidden");
+                }, 300);
+            }, 2500);
+        }
+
+        // Dynamically Generate and Download vCard (.vcf)
+        function downloadVCard() {
+            const vCardData = 
+`BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Mostafa Rashad
+N;CHARSET=UTF-8:Rashad;Mostafa;;;
+ORG;CHARSET=UTF-8:Mobile bro shop
+TEL;TYPE=CELL,VOICE:${phoneNumber}
+ADR;TYPE=WORK;CHARSET=UTF-8:;;السراج مول 3;;;;
+URL:https://www.tiktok.com/@mustafa.a.rashad?_r=1&_t=ZS-9AfAq7RPxfV
+END:VCARD`;
+
+            const blob = new Blob([vCardData], { type: "text/vcard;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", "Mostafa_Rashad_Mobile_bro_shop.vcf");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            showToast("جاري تنزيل جهة الاتصال...");
+        }
+    </script>
+</body>
+</html>
